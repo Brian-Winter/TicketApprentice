@@ -14,6 +14,7 @@ namespace BlueBadge.Data
         public int EventId { get; set; }
         [ForeignKey(nameof(Venue))]
         public int VenueId { get; set; }
+        public Venue Venue { get; set; }
         public DateTime Date { get; set; }
         public string EventName { get; set; }
         public int MaxTickets { get; set; }
