@@ -1,22 +1,17 @@
-﻿using System;
+﻿using BlueBadge.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlueBadge.Data
+namespace BlueBadge.Models.Event
 {
-    public class Event
+    public class EventEdit
     {
-        [Key]
+        [Required]
         public int EventId { get; set; }
-
-        [ForeignKey(nameof(Venue))]
-        public int VenueId { get; set; }
-        public Venue Venue { get; set; }
-
         public DateTime Date { get; set; }
         public string EventName { get; set; }
         public int MaxTickets { get; set; }

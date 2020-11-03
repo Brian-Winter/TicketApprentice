@@ -26,7 +26,6 @@ namespace BlueBadge.Data
         [ForeignKey(nameof(User))]
         public Guid UserId { get; set; }
         public virtual User User { get; set; }
-
         [Required]
         public decimal Cost { get; set; }
         public string SeatName { get; set; }
