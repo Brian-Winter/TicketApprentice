@@ -12,19 +12,19 @@ namespace BlueBadge.WepAPI.Controllers
     [Authorize]
     public class EventController : ApiController
     {
-        private EventService CreateEventService(int venueId)
+        private EventService CreateEventService()
         {
-            var eventService = new EventService(venueId);
+            var eventService = new EventService();
             return eventService;
         }
 
         // Create
-        public IHttpActionResult Post(EventCreate newEvent, [FromUri] int venueId)
+        public IHttpActionResult Post(EventCreate newEvent)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var eventService = CreateEventService(venueId);
+            var eventService = CreateEventService();
 
             if (!eventService.CreateEvent(newEvent))
                 return InternalServerError();
@@ -33,6 +33,14 @@ namespace BlueBadge.WepAPI.Controllers
         }
 
         // Read
+        // Get All
+        public IHttpActionResult Get()
+        {
+            EventService eventService = CreateEventService();
+            var events = eventService.GetAllEvents();
+            return Ok(events);
+        }
+
         // Update 
         // Delete
     }

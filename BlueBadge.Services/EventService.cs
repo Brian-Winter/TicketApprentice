@@ -12,22 +12,12 @@ namespace BlueBadge.Services
 {
     public class EventService
     {
-        private readonly int _venueId;
-        //private readonly Venue _venue; // TODO - ask about this
-
-        public EventService(int venueId/*, Venue venue*/)
-        {
-            _venueId = venueId;
-            //_venue = venue;
-        }
-
         // Create
         public bool CreateEvent(EventCreate model)
         {
             Event newEvent = new Event()
             {
-                VenueId = _venueId,
-                //Venue = _venue,
+                VenueId = model.VenueId,
                 Date = model.Date,
                 EventName = model.EventName,
                 MaxTickets = model.MaxTickets,
