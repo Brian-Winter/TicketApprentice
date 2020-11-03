@@ -13,7 +13,7 @@ namespace BlueBadge.Services
     {
         private Ticket _listOfTicket = new Ticket();
         private readonly Guid _userId;
-
+        public TicketService() { }
         public TicketService(int ticketID)
         {
             _listOfTicket.TicketId = ticketID;
@@ -27,10 +27,11 @@ namespace BlueBadge.Services
         {
             var entity = new Ticket()
             {
-                TicketId = model.TicketId,
+               
                 Cost = model.Cost,
                 SeatName = model.SeatName,
-                EventId = model.EventId
+                EventId = model.EventId,
+                UserId = model.UserId
             };
             using (var ctx = new ApplicationDbContext())
             {
