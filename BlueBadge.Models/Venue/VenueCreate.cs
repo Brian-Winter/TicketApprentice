@@ -5,17 +5,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlueBadge.Data
+namespace BlueBadge.Models.Venue
 {
-    public class Venue
+    public class VenueCreate
     {
-        [Key]
+        [Required]
         public int VenueId { get; set; }
+        [Required]
         public string VenueName { get; set; }
+        [Required]
         public string StreetAddress { get; set; }
+        [Required]
         public string City { get; set; }
+        [Required]
         public string State { get; set; }
+        [Required]
         public int Capacity { get; set; }
+        [Required]
         public int NumberOfSeats { get; set; }
+
     }
 }
