@@ -33,7 +33,7 @@ namespace BlueBadge.Data
         }
 
         public DbSet<Venue> Venue { get; set; }
-        public DbSet<Event> Event { get; set; }
+        public DbSet<Event> Events { get; set; }
         public DbSet<Ticket> Ticket { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
