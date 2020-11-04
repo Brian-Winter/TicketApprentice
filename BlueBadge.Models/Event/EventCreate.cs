@@ -11,7 +11,6 @@ namespace BlueBadge.Models.Event
     public class EventCreate
     {
         public int VenueId { get; set; }
-        public Venue Venue { get; set; }
         [Required]
         public DateTime Date { get; set; }
         [Required]

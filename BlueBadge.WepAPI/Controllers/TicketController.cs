@@ -9,6 +9,7 @@ using System.Web.Http;
 
 namespace BlueBadge.WepAPI.Controllers
 {
+    [Authorize]
     public class TicketController : ApiController
     {
         public TicketService CreateTicketService()

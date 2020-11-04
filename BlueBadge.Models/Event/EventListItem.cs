@@ -9,8 +9,7 @@ namespace BlueBadge.Models.Event
 {
     public class EventListItem
     {
-        public int EventId { get; set; }
-        public Venue Venue { get; set; }
+        public int EventId { get; set; }        
         public DateTime Date { get; set; }
         public string EventName { get; set; }
     }
