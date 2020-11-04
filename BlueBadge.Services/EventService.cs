@@ -46,7 +46,6 @@ namespace BlueBadge.Services
                                 new EventListItem
                                 {
                                     EventId = e.EventId,
-                                    Venue = e.Venue,
                                     Date = e.Date,
                                     EventName = e.EventName
                                 }

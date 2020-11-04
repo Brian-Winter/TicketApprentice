@@ -6,9 +6,11 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Microsoft.AspNet.Identity;
 
 namespace BlueBadge.WepAPI.Controllers
 {
+    [Authorize]
     public class TicketController : ApiController
     {
         public TicketService CreateTicketService()

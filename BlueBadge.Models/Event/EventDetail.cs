@@ -10,7 +10,6 @@ namespace BlueBadge.Models.Event
     public class EventDetail
     {
         public int EventId { get; set; }
-        public Venue Venue { get; set; }
         public DateTime Date { get; set; }
         public string EventName { get; set; }
         public int MaxTickets { get; set; }
