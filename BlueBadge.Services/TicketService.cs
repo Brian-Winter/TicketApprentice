@@ -14,10 +14,7 @@ namespace BlueBadge.Services
         private Ticket _listOfTicket = new Ticket();
         private readonly Guid _userId;
         public TicketService() { }
-        public TicketService(int ticketID)
-        {
-            _listOfTicket.TicketId = ticketID;
-        }
+       
         public TicketService(Guid userId)
         {
             _userId = userId;
@@ -63,7 +60,6 @@ namespace BlueBadge.Services
                 var query = 
                     ctx
                     .Ticket
-                    .Where(e => e.TicketId == _listOfTicket.TicketId) //Need proper cycle
                     .Select(
                         e => new TicketListItem
                         {
@@ -125,7 +121,7 @@ namespace BlueBadge.Services
                 var query =
                     ctx
                     .Ticket
-                    .Where(e => e.EventId == eventId) //Need proper cycle
+                    .Where(e => e.EventId == eventId) 
                     .Select(
                         e => new TicketListItem
                         {
