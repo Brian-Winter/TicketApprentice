@@ -25,14 +25,15 @@ namespace BlueBadge.Services
         //Create
         public bool TicketCreate(TicketCreate model)
         {
-            var entity = new Ticket()
-            {
+            var entity = 
+                new Ticket()
+                {
                
-                Cost = model.Cost,
-                SeatName = model.SeatName,
-                EventId = model.EventId,
-                UserId = model.UserId
-            };
+                    Cost = model.Cost,
+                    SeatName = model.SeatName,
+                    EventId = model.EventId,
+                    //UserId = _userId
+                };
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.Ticket.Add(entity);
@@ -54,12 +55,15 @@ namespace BlueBadge.Services
             }
         }
         //View ALL
+       
         public IEnumerable<TicketListItem> GetTicketList()
         {
             using(var ctx = new ApplicationDbContext())
             {
-                var query = ctx.Ticket
-                    .Where(e => e.TicketId == _listOfTicket.TicketId)
+                var query = 
+                    ctx
+                    .Ticket
+                    .Where(e => e.TicketId == _listOfTicket.TicketId) //Need proper cycle
                     .Select(
                         e => new TicketListItem
                         {
@@ -74,25 +78,25 @@ namespace BlueBadge.Services
             }
         }
         //View By User
-        public TicketDetails GetTicketByUserId(int id)
-        {
+        //public TicketDetails GetTicketByUserId(int id)
+        //{
 
-            using (var ctx = new ApplicationDbContext())
-            {
-                var entity = ctx.Ticket.Single(e => e.UserId == _userId);
-                return new TicketDetails
-                {
-                    Cost = entity.Cost,
-                    EventId = entity.EventId,
-                    SeatName = entity.SeatName
-                };
-
-
-            }
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        var entity = ctx.Ticket.Single(e => e.UserId == _userId);
+        //        return new TicketDetails
+        //        {
+        //            Cost = entity.Cost,
+        //            EventId = entity.EventId,
+        //            SeatName = entity.SeatName
+        //        };
 
 
+        //    }
 
-        }
+
+
+      //  }
         //View by TicketID
         public TicketDetails GetTicketByTicketId(int id)
         {
@@ -113,26 +117,28 @@ namespace BlueBadge.Services
 
 
         }
-        //View by Event
-        public TicketDetails GetTicketByEventId(int eventId)
+       // View by Event
+        public IEnumerable<TicketListItem> GetTicketByEventId(int eventId)
         {
-
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Ticket.Single(e => e.EventId == eventId);
-                return new TicketDetails
-                {
-                    TicketId = entity.TicketId,
-                    Cost = entity.Cost,
-                    EventId = entity.EventId,
-                    SeatName = entity.SeatName
-                };
+                var query =
+                    ctx
+                    .Ticket
+                    .Where(e => e.EventId == eventId) //Need proper cycle
+                    .Select(
+                        e => new TicketListItem
+                        {
+                            TicketId = e.TicketId,
+                            EventId = e.EventId,
+                            SeatName = e.SeatName
+                        }
 
+                    );
+                return query.ToArray();
 
             }
-
-
-
         }
+        
     }
 }

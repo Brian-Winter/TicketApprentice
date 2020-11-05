@@ -13,25 +13,52 @@ namespace BlueBadge.WepAPI.Controllers
     [Authorize]
     public class TicketController : ApiController
     {
-        public TicketService CreateTicketService()
+        private TicketService CreateTicketService()
         {
             var ticketService = new TicketService();
             return ticketService;
         }
+        //POST
         public IHttpActionResult Post(TicketCreate ticket)
         {
             if (!ModelState.IsValid)
-            {
+
                 return BadRequest(ModelState);
-            }
+
             var service = CreateTicketService();
             if (!service.TicketCreate(ticket))
-            
+
                 return InternalServerError();
-            
 
-            return Ok();
 
+            return Ok(ticket);
+
+        }
+        //GET ALL
+        public IHttpActionResult Get()
+        {
+            TicketService ticketService = CreateTicketService();
+            var tickets = ticketService.GetTicketList();
+            return Ok(tickets);
+
+        }
+        //GET USER ID
+
+        //GET EVENT ID
+        [Route("api/Ticket/Event")]
+        public IHttpActionResult GetByEventId(int id)
+        {
+            TicketService ticketService = CreateTicketService();
+            var ticket = ticketService.GetTicketByEventId(id);
+            return Ok(ticket);
+        }
+        //GET TICKET ID
+
+        public IHttpActionResult GetByTicketId(int id)
+        {
+            TicketService ticketService = CreateTicketService();
+            var ticket = ticketService.GetTicketByTicketId(id);
+            return Ok(ticket);
         }
     }
 }
