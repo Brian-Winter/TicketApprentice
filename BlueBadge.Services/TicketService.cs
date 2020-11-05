@@ -65,6 +65,7 @@ namespace BlueBadge.Services
                         {
                             TicketId = e.TicketId,
                             EventId = e.EventId,
+                            Cost = e.Cost,
                             SeatName = e.SeatName
                         }
                               
@@ -74,6 +75,7 @@ namespace BlueBadge.Services
             }
         }
         //View By User
+
         //public TicketDetails GetTicketByUserId(int id)
         //{
 
@@ -127,12 +129,30 @@ namespace BlueBadge.Services
                         {
                             TicketId = e.TicketId,
                             EventId = e.EventId,
+                            Cost = e.Cost,
                             SeatName = e.SeatName
                         }
 
                     );
                 return query.ToArray();
 
+            }
+        }
+        //Update Ticket 
+
+        public bool UpdateTicket(TicketEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                        ctx
+                            .Ticket
+                            .Single(e => e.TicketId == model.TicketId);
+
+                entity.Cost = model.Cost;
+                entity.SeatName = model.SeatName;
+
+                return ctx.SaveChanges() == 1;
             }
         }
         

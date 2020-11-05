@@ -34,6 +34,24 @@ namespace BlueBadge.WepAPI.Controllers
             return Ok(ticket);
 
         }
+        //PUT Change Cost/Seat
+        public IHttpActionResult Put(TicketEdit ticket)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var service = CreateTicketService();
+
+            if (!service.UpdateTicket(ticket))
+                return InternalServerError();
+
+            return Ok();
+        }
+
+        //PUT UserID 
+
+        //PUT Remove  User ID
+       // [Route("api/Ticket/Refund")]
         //GET ALL
         public IHttpActionResult Get()
         {
@@ -59,6 +77,16 @@ namespace BlueBadge.WepAPI.Controllers
             TicketService ticketService = CreateTicketService();
             var ticket = ticketService.GetTicketByTicketId(id);
             return Ok(ticket);
+        }
+        //DELETE TICKET ID
+        public IHttpActionResult DeleteTicket(int id)
+        {
+            var service = CreateTicketService();
+            if (!service.RemoveTicket(id))
+            {
+                return InternalServerError();
+            }
+            return Ok();
         }
     }
 }
