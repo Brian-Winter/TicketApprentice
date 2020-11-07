@@ -179,6 +179,10 @@
     <Compile Include="Migrations\202011050003225_added ticket user FK null.designer.cs">
       <DependentUpon>202011050003225_added ticket user FK null.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011070241050_user to appuser.cs" />
+    <Compile Include="Migrations\202011070241050_user to appuser.designer.cs">
+      <DependentUpon>202011070241050_user to appuser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Ticket.cs" />
@@ -204,6 +208,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011050003225_added ticket user FK null.resx">
       <DependentUpon>202011050003225_added ticket user FK null.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011070241050_user to appuser.resx">
+      <DependentUpon>202011070241050_user to appuser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

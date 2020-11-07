@@ -15,7 +15,8 @@ namespace BlueBadge.WepAPI.Controllers
     {
         private TicketService CreateTicketService()
         {
-            var ticketService = new TicketService();
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var ticketService = new TicketService(userId);
             return ticketService;
         }
         //POST
@@ -61,7 +62,13 @@ namespace BlueBadge.WepAPI.Controllers
 
         }
         //GET USER ID
-
+        [Route("api/Ticket/User")]
+        public IHttpActionResult GetByUserId(Guid id)
+        {
+            TicketService ticketService = CreateTicketService();
+            var ticket = ticketService.GetTicketByUserId(id);
+            return Ok(ticket);
+        }
         //GET EVENT ID
         [Route("api/Ticket/Event")]
         public IHttpActionResult GetByEventId(int id)

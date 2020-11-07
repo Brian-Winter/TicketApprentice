@@ -12,5 +12,6 @@ namespace BlueBadge.Models.TicketModels
         public int EventId { get; set; }
         public decimal Cost { get; set; }
         public string SeatName { get; set; }
+        public Guid? UserId { get; set; }
     }
 }

@@ -23,9 +23,9 @@ namespace BlueBadge.Data
         public int EventId { get; set; }
         public virtual Event Event { get; set; }
 
-        [ForeignKey(nameof(User))]
+        
         public Guid? UserId { get; set; }
-        public virtual User User { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
         [Required]
         public decimal Cost { get; set; }
         public string SeatName { get; set; }

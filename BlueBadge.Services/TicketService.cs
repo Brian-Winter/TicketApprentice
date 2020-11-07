@@ -11,7 +11,7 @@ namespace BlueBadge.Services
 {
     public class TicketService
     {
-        private Ticket _listOfTicket = new Ticket();
+       
         private readonly Guid _userId;
         public TicketService() { }
        
@@ -29,7 +29,7 @@ namespace BlueBadge.Services
                     Cost = model.Cost,
                     SeatName = model.SeatName,
                     EventId = model.EventId,
-                    //UserId = _userId
+                    UserId = _userId
                 };
             using (var ctx = new ApplicationDbContext())
             {
@@ -66,7 +66,9 @@ namespace BlueBadge.Services
                             TicketId = e.TicketId,
                             EventId = e.EventId,
                             Cost = e.Cost,
-                            SeatName = e.SeatName
+                            SeatName = e.SeatName,
+                            UserId = e.UserId
+                          
                         }
                               
                     );
@@ -74,27 +76,33 @@ namespace BlueBadge.Services
             
             }
         }
-        //View By User
+     //   View By User
 
-        //public TicketDetails GetTicketByUserId(int id)
-        //{
+                    
+         public IEnumerable<TicketDetails> GetTicketByUserId(Guid id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Ticket
+                    .Where(e => e.UserId == id)
+                    .Select(
+                        e => new TicketDetails
+                        {
+                            Cost = e.Cost,
+                            EventId = e.EventId,
+                            SeatName = e.SeatName
 
-        //    using (var ctx = new ApplicationDbContext())
-        //    {
-        //        var entity = ctx.Ticket.Single(e => e.UserId == _userId);
-        //        return new TicketDetails
-        //        {
-        //            Cost = entity.Cost,
-        //            EventId = entity.EventId,
-        //            SeatName = entity.SeatName
-        //        };
+                        }
 
+                    );
+                return query.ToArray();
 
-        //    }
+            }
+        }
 
-
-
-      //  }
+    
         //View by TicketID
         public TicketDetails GetTicketByTicketId(int id)
         {
@@ -109,7 +117,7 @@ namespace BlueBadge.Services
                     SeatName = entity.SeatName
                 };
 
-
+               
             }
 
 
