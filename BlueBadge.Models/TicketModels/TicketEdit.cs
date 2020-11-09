@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace BlueBadge.Models.TicketModels
 {
-    public class TicketListItem
+    public class TicketEdit
     {
         public int TicketId { get; set; }
-        public int EventId { get; set; }
         public decimal Cost { get; set; }
         public string SeatName { get; set; }
-        public Guid? UserId { get; set; }
     }
 }
