@@ -40,7 +40,7 @@ namespace BlueBadge.Services
                 var query =
                     ctx
                         .Events
-                        .Where(e => e.Date > DateTime.Now)
+                        .Where(e => e.Date >= DateTime.Now)
                         .Select(
                             e =>
                                 new EventListItem
@@ -53,14 +53,74 @@ namespace BlueBadge.Services
                 return query.ToArray();
             }
         }
-            // view by id
-            // view all by venue
-            // view all by date
+
+        public EventDetail GetEventById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Events
+                        .Single(e => e.EventId == id);
+                return
+                    new EventDetail
+                    {
+                        EventId = entity.EventId,
+                        Date = entity.Date,
+                        EventName = entity.EventName,
+                        MaxTickets = entity.MaxTickets,
+                        AvailableTickets = entity.AvailableTickets,
+                        ExpectedRevenue = entity.ExpectedRevenue
+                    };
+            }
+        }
+
+        public IEnumerable<EventListItem> GetEventsByVenue(int venueId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .Events
+                        .Where(e => e.VenueId == venueId)
+                        .Select(
+                            e =>
+                                new EventListItem
+                                {
+                                    EventId = e.EventId,
+                                    Date = e.Date,
+                                    EventName = e.EventName
+                                }
+                            );
+                return query.ToArray();
+            }
+        }
+
+        public IEnumerable<EventListItem> GetEventsByDate(DateTime date)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .Events
+                        .Where(e => e.Date == date)
+                        .Select(
+                            e =>
+                                new EventListItem
+                                {
+                                    EventId = e.EventId,
+                                    Date = e.Date,
+                                    EventName = e.EventName
+                                }
+                            );
+                return query.ToArray();
+            }
+        }
 
         // Update
-            // put
+        // put
 
         // Delete
-            // delete
+        // delete
     }
 }
