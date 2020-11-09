@@ -159,15 +159,6 @@
   <ItemGroup>
     <Compile Include="Event.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202011030218511_first commit.cs" />
-    <Compile Include="Migrations\202011030218511_first commit.Designer.cs">
-      <DependentUpon>202011030218511_first commit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011030240282_Added auth to ticket controller.cs" />
-    <Compile Include="Migrations\202011030240282_Added auth to ticket controller.designer.cs">
-      <DependentUpon>202011030240282_Added auth to ticket controller.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Ticket.cs" />
     <Compile Include="User.cs" />
@@ -176,14 +167,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202011030218511_first commit.resx">
-      <DependentUpon>202011030218511_first commit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011030240282_Added auth to ticket controller.resx">
-      <DependentUpon>202011030240282_Added auth to ticket controller.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

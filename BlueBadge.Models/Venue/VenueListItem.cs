@@ -8,6 +8,8 @@ namespace BlueBadge.Models.Venue
 {
     public class VenueListItem
     {
-
+        public string VenueName { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
     }
 }
