@@ -183,6 +183,18 @@
     <Compile Include="Migrations\202011070241050_user to appuser.designer.cs">
       <DependentUpon>202011070241050_user to appuser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011090340004_added enum prop.cs" />
+    <Compile Include="Migrations\202011090340004_added enum prop.designer.cs">
+      <DependentUpon>202011090340004_added enum prop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011090445319_added ticketdemand prop.cs" />
+    <Compile Include="Migrations\202011090445319_added ticketdemand prop.designer.cs">
+      <DependentUpon>202011090445319_added ticketdemand prop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011090451394_added requires.cs" />
+    <Compile Include="Migrations\202011090451394_added requires.designer.cs">
+      <DependentUpon>202011090451394_added requires.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Ticket.cs" />
@@ -211,6 +223,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011070241050_user to appuser.resx">
       <DependentUpon>202011070241050_user to appuser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011090340004_added enum prop.resx">
+      <DependentUpon>202011090340004_added enum prop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011090445319_added ticketdemand prop.resx">
+      <DependentUpon>202011090445319_added ticketdemand prop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011090451394_added requires.resx">
+      <DependentUpon>202011090451394_added requires.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

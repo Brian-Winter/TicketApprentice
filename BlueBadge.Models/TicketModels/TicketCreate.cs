@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BlueBadge.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,7 @@ namespace BlueBadge.Models.TicketModels
         public decimal Cost { get; set; }
         public int EventId { get; set; }
         public string SeatName { get; set; }
-
+        public TicketTier TierOfTicket { get; set; }
+        public DemandOfEventTicketScale TicketDemand { get; set; }
     }
 }

@@ -11,9 +11,16 @@ namespace BlueBadge.Data
 {
     public enum TicketTier
     {
-        General, 
+        General =1, 
         LowerLevel,
         VIP
+    }
+    public enum DemandOfEventTicketScale
+    {
+        low =1,
+        medium,
+        high,
+        extreme
     }
     public class Ticket
     {
@@ -22,12 +29,15 @@ namespace BlueBadge.Data
         [ForeignKey(nameof(Event))]
         public int EventId { get; set; }
         public virtual Event Event { get; set; }
-
-        
+                
         public Guid? UserId { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }
         [Required]
         public decimal Cost { get; set; }
         public string SeatName { get; set; }
+        [Required]
+        public TicketTier TierOfTicket { get; set; }
+        [Required]
+        public DemandOfEventTicketScale TicketDemand { get; set; }
     }
 }

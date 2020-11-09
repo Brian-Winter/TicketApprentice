@@ -22,10 +22,74 @@ namespace BlueBadge.Services
         //Create
         public bool TicketCreate(TicketCreate model)
         {
+            //option one on ticket cost with demand and tier
+            switch (model.TicketDemand)
+            {
+                case DemandOfEventTicketScale.low:
+                    switch (model.TierOfTicket)
+                    {
+                        case TicketTier.General:
+                            model.Cost = 15.00m;
+                            break;
+                        case TicketTier.LowerLevel:
+                            model.Cost = 30.00m;
+                            break;
+                        case TicketTier.VIP:
+                            model.Cost = 60.00m;
+                            break;
+                    }
+                    break; 
+                case DemandOfEventTicketScale.medium:
+                    switch (model.TierOfTicket)
+                    {
+                        case TicketTier.General:
+                            model.Cost = 30.00m;
+                            break;
+                        case TicketTier.LowerLevel:
+                            model.Cost = 60.00m;
+                            break;
+                        case TicketTier.VIP:
+                            model.Cost = 120.00m;
+                            break;
+                    }
+                    break; 
+                case DemandOfEventTicketScale.high:
+                    switch (model.TierOfTicket)
+                    {
+                        case TicketTier.General:
+                            model.Cost = 50.00m;
+                            break;
+                        case TicketTier.LowerLevel:
+                            model.Cost = 100.00m;
+                            break;
+                        case TicketTier.VIP:
+                            model.Cost = 200.00m;
+                            break;
+                    }
+                    break;  
+                case DemandOfEventTicketScale.extreme:
+                    switch (model.TierOfTicket)
+                    {
+                        case TicketTier.General:
+                            model.Cost = 100.00m;
+                            break;
+                        case TicketTier.LowerLevel:
+                            model.Cost = 150.00m;
+                            break;
+                        case TicketTier.VIP:
+                            model.Cost = 300.00m;
+                            break;
+                    }
+                    break;
+            }
+
+            //Option Two on equation for Cost
+            //need to convert to number
+         //  model.Cost = (model.TicketDemand.ToI + model.TierOfTicket) * 30
             var entity = 
                 new Ticket()
                 {
-               
+                    TierOfTicket = model.TierOfTicket,
                     Cost = model.Cost,
                     SeatName = model.SeatName,
                     EventId = model.EventId,
