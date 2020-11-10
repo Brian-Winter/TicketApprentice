@@ -159,41 +159,9 @@
   <ItemGroup>
     <Compile Include="Event.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202011030218549_first commit.cs" />
-    <Compile Include="Migrations\202011030218549_first commit.Designer.cs">
-      <DependentUpon>202011030218549_first commit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011030238242_second.cs" />
-    <Compile Include="Migrations\202011030238242_second.designer.cs">
-      <DependentUpon>202011030238242_second.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011042353360_test ticket w-o user.cs" />
-    <Compile Include="Migrations\202011042353360_test ticket w-o user.designer.cs">
-      <DependentUpon>202011042353360_test ticket w-o user.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011050000447_added ticket user FK.cs" />
-    <Compile Include="Migrations\202011050000447_added ticket user FK.designer.cs">
-      <DependentUpon>202011050000447_added ticket user FK.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011050003225_added ticket user FK null.cs" />
-    <Compile Include="Migrations\202011050003225_added ticket user FK null.designer.cs">
-      <DependentUpon>202011050003225_added ticket user FK null.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011070241050_user to appuser.cs" />
-    <Compile Include="Migrations\202011070241050_user to appuser.designer.cs">
-      <DependentUpon>202011070241050_user to appuser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011090340004_added enum prop.cs" />
-    <Compile Include="Migrations\202011090340004_added enum prop.designer.cs">
-      <DependentUpon>202011090340004_added enum prop.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011090445319_added ticketdemand prop.cs" />
-    <Compile Include="Migrations\202011090445319_added ticketdemand prop.designer.cs">
-      <DependentUpon>202011090445319_added ticketdemand prop.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011090451394_added requires.cs" />
-    <Compile Include="Migrations\202011090451394_added requires.designer.cs">
-      <DependentUpon>202011090451394_added requires.cs</DependentUpon>
+    <Compile Include="Migrations\202011100050043_resetting migrations folder.cs" />
+    <Compile Include="Migrations\202011100050043_resetting migrations folder.designer.cs">
+      <DependentUpon>202011100050043_resetting migrations folder.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -206,32 +174,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202011030218549_first commit.resx">
-      <DependentUpon>202011030218549_first commit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011030238242_second.resx">
-      <DependentUpon>202011030238242_second.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011042353360_test ticket w-o user.resx">
-      <DependentUpon>202011042353360_test ticket w-o user.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011050000447_added ticket user FK.resx">
-      <DependentUpon>202011050000447_added ticket user FK.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011050003225_added ticket user FK null.resx">
-      <DependentUpon>202011050003225_added ticket user FK null.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011070241050_user to appuser.resx">
-      <DependentUpon>202011070241050_user to appuser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011090340004_added enum prop.resx">
-      <DependentUpon>202011090340004_added enum prop.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011090445319_added ticketdemand prop.resx">
-      <DependentUpon>202011090445319_added ticketdemand prop.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011090451394_added requires.resx">
-      <DependentUpon>202011090451394_added requires.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202011100050043_resetting migrations folder.resx">
+      <DependentUpon>202011100050043_resetting migrations folder.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
