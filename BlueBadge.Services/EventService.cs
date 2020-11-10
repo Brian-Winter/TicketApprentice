@@ -40,6 +40,26 @@ namespace BlueBadge.Services
                 var query =
                     ctx
                         .Events
+                        .Select(
+                            e =>
+                                new EventListItem
+                                {
+                                    EventId = e.EventId,
+                                    Date = e.Date,
+                                    EventName = e.EventName
+                                }
+                            );
+                return query.ToArray();
+            }
+        }
+
+        public IEnumerable<EventListItem> GetUpcomingEvents()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .Events
                         .Where(e => e.Date >= DateTime.Now)
                         .Select(
                             e =>
@@ -118,9 +138,39 @@ namespace BlueBadge.Services
         }
 
         // Update
-        // put
+        public bool UpdateEvent(EventEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Events
+                        .Single(e => e.EventId == model.EventId);
+
+                entity.Date = model.Date;
+                entity.EventName = model.EventName;
+                entity.MaxTickets = model.MaxTickets;
+                entity.AvailableTickets = model.AvailableTickets;
+                entity.ExpectedRevenue = model.ExpectedRevenue;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
 
         // Delete
-        // delete
+        public bool DeleteEvent(int eventId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Events
+                        .Single(e => e.EventId == eventId);
+
+                ctx.Events.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
