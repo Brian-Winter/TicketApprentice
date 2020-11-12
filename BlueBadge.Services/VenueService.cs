@@ -20,6 +20,7 @@ namespace BlueBadge.Services
         //Create Venue
         public bool CreateVenue(VenueCreate model)
         {
+
             var entity =
                 new Venue()
                 {
@@ -32,6 +33,7 @@ namespace BlueBadge.Services
                     NumberOfSeats = model.NumberOfSeats,
                 };
 
+           
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.Venue.Add(entity);

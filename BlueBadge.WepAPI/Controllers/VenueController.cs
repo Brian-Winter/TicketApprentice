@@ -1,5 +1,6 @@
 ﻿using BlueBadge.Models.Venue;
 using BlueBadge.Services;
+using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +30,8 @@ namespace BlueBadge.WepAPI.Controllers
 
             if (!venueService.CreateVenue(venue))
                 return InternalServerError();
+            
+            
 
             return Ok();
         }
