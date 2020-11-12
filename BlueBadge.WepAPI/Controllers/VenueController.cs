@@ -1,4 +1,5 @@
-﻿using BlueBadge.Models.Venue;
+﻿using BlueBadge.Data;
+using BlueBadge.Models.Venue;
 using BlueBadge.Services;
 using System;
 using System.Collections.Generic;
@@ -61,6 +62,14 @@ namespace BlueBadge.WepAPI.Controllers
                 return InternalServerError();
 
             return Ok();
+        }
+
+        [Route("api/Venue/{state}")]
+        public IHttpActionResult Get(string state)
+        {
+            VenueService venueService = CreateVenueService();
+            var venue = venueService.GetVenueByState(state);
+            return Ok(venue);
         }
 
         private VenueService CreateVenueService()

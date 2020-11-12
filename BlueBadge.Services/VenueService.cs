@@ -5,9 +5,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace BlueBadge.Services
 {
+    //[RoutePrefix("api/venue")]
     public class VenueService
     {
         //private readonly Guid _userId;
@@ -95,7 +97,7 @@ namespace BlueBadge.Services
                 var entity =
                     ctx
                         .Venue
-                        .Single(e => e.VenueId == venueId /*&& e.OwnerId == _userId*/);
+                        .Single(e => e.VenueId == venueId);
 
                 ctx.Venue.Remove(entity);
 
@@ -123,5 +125,37 @@ namespace BlueBadge.Services
                     };
             }
         }
+
+        //See Venues by State (add a Route /States)
+
+
+        public IEnumerable<VenueListItem> GetVenueByState(string state)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .Venue
+                        .Where(e => e.State == state)
+                        .Select(
+                            e =>
+                                new VenueListItem
+                                {
+                                    VenueId = e.VenueId,
+                                    VenueName = e.VenueName,
+                                    State = e.State,
+                                    StreetAddress = e.StreetAddress,
+                                    City = e.City,
+                                    Capacity = e.Capacity,
+                                    NumberOfSeats = e.NumberOfSeats
+                                }
+                        );
+
+                return query.ToArray();
+            }
+        }
+
+
+
     }
 }
