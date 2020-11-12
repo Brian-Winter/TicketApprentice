@@ -158,10 +158,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BlueBadge.Data\BlueBadge.Data.csproj">
-      <Project>{18647704-03ac-4c0f-882b-2b1c22569964}</Project>
-      <Name>BlueBadge.Data</Name>
-    </ProjectReference>
     <ProjectReference Include="..\BlueBadge.Models\BlueBadge.Models.csproj">
       <Project>{a86ef28f-a82f-4101-9e2e-36cd25bdab62}</Project>
       <Name>BlueBadge.Models</Name>
