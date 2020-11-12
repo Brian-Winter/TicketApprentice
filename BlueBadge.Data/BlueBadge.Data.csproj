@@ -159,9 +159,9 @@
   <ItemGroup>
     <Compile Include="Event.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202011092322424_ticket update.cs" />
-    <Compile Include="Migrations\202011092322424_ticket update.designer.cs">
-      <DependentUpon>202011092322424_ticket update.cs</DependentUpon>
+    <Compile Include="Migrations\202011120201252_redoing this again.cs" />
+    <Compile Include="Migrations\202011120201252_redoing this again.designer.cs">
+      <DependentUpon>202011120201252_redoing this again.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -174,8 +174,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202011092322424_ticket update.resx">
-      <DependentUpon>202011092322424_ticket update.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202011120201252_redoing this again.resx">
+      <DependentUpon>202011120201252_redoing this again.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
