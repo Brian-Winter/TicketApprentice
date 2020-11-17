@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace BlueBadge.Data
 {
-    class Venue
+    public class Venue
     {
         [Key]
-        public int EventId { get; set; }
+        public int VenueId { get; set; }
         public string VenueName { get; set; }
         public string StreetAddress { get; set; }
         public string City { get; set; }
