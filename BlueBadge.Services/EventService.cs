@@ -28,7 +28,7 @@ namespace BlueBadge.Services
             using (ApplicationDbContext ctx = new ApplicationDbContext())
             {
                 ctx.Events.Add(newEvent);
-                return ctx.SaveChanges() == 1;
+                 return ctx.SaveChanges() == 1;
             }
         }
 
@@ -165,6 +165,26 @@ namespace BlueBadge.Services
                 entity.MaxTickets = model.MaxTickets;
                 entity.AvailableTickets = model.AvailableTickets;
                 entity.ExpectedRevenue = model.ExpectedRevenue;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+        // Update Ticket Available
+        public bool UpdateEventbyTicketSold(int model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Events
+                        .Single(e => e.EventId == model);
+
+               //if(entity.AvailableTickets < 1)
+               // {
+               //     return false;
+               // }
+                             
+                entity.AvailableTickets--;
 
                 return ctx.SaveChanges() == 1;
             }

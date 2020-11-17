@@ -1,6 +1,7 @@
 ﻿using BlueBadge.Data;
 using BlueBadge.Models.Venue;
 using BlueBadge.Services;
+using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,10 +32,19 @@ namespace BlueBadge.WepAPI.Controllers
             if (!venueService.CreateVenue(venue))
                 return InternalServerError();
 
+            if (venue.Capacity < venue.NumberOfSeats)
+            {
+                return BadRequest("Cap is too low");
+            }
+            else
+            {
             return Ok();
-        }
 
-        public IHttpActionResult Get(int id)
+            }
+
+        }
+        
+        public IHttpActionResult GetbyId(int id)
         {
             VenueService venueService = CreateVenueService();
             var venue = venueService.GetVenueById(id);

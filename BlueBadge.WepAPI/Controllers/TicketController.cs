@@ -62,7 +62,7 @@ namespace BlueBadge.WepAPI.Controllers
 
         }
         //GET USER ID
-        [Route("api/Ticket/User")]
+        [Route("api/Ticket/User/{id}")]
         public IHttpActionResult GetByUserId(Guid id)
         {
             TicketService ticketService = CreateTicketService();
@@ -70,7 +70,7 @@ namespace BlueBadge.WepAPI.Controllers
             return Ok(ticket);
         }
         //GET EVENT ID
-        [Route("api/Ticket/Event")]
+        [Route("api/Ticket/Event/{id}")]
         public IHttpActionResult GetByEventId(int id)
         {
             TicketService ticketService = CreateTicketService();
