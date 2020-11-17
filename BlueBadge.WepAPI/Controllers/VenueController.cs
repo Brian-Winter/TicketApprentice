@@ -64,7 +64,7 @@ namespace BlueBadge.WepAPI.Controllers
             return Ok();
         }
 
-        [Route("api/Venue/{state}")]
+        [Route("api/Venue/state/{state}")]
         public IHttpActionResult Get(string state)
         {
             VenueService venueService = CreateVenueService();
