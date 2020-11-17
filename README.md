@@ -1,6 +1,6 @@
 # TicketApprentice
 
-TicketApprentice is an app that allows users to purchase tickets to concerts/events at various venues. A user (preferrably an admin) has the ability to add their own venue, or create their own event!
+TicketApprentice is an app that allows users to purchase tickets to concerts/events at various venues. A user (preferrably an admin) has the ability to add their own venue, or create their own event.
 
 A typical user can search for venues and purchase tickets for specific events. They have a lot of options when it comes to finding venues and events! They can search for venues by state, or search events by their date, and so on.
 
