@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 using BlueBadge.Data;
 using BlueBadge.Models;
 using BlueBadge.Models.TicketModels;
+using BlueBadge.Models.Event;
 
 namespace BlueBadge.Services
 {
     public class TicketService
     {
-       
+        private EventService _listofEvents = new EventService();
         private readonly Guid _userId;
         public TicketService() { }
        
@@ -95,6 +96,11 @@ namespace BlueBadge.Services
                     EventId = model.EventId,
                     UserId = _userId
                 };
+
+            
+            _listofEvents.UpdateEventbyTicketSold(model.EventId);
+            
+
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.Ticket.Add(entity);

@@ -22,7 +22,11 @@ namespace BlueBadge.Services
         //Create Venue
         public bool CreateVenue(VenueCreate model)
         {
-
+            if(model.Capacity < model.NumberOfSeats)
+            {
+                
+                return false;
+            }
             var entity =
                 new Venue()
                 {
@@ -56,9 +60,15 @@ namespace BlueBadge.Services
                             e =>
                                 new VenueListItem
                                 {
+                                    VenueId = e.VenueId,
                                     VenueName = e.VenueName,
+                                    StreetAddress = e.StreetAddress,
                                     City = e.City,
-                                    State = e.State
+                                    State = e.State,
+                                    Capacity = e.Capacity,
+                                    NumberOfSeats = e.NumberOfSeats
+
+
                                 }
                         );
 
@@ -123,7 +133,7 @@ namespace BlueBadge.Services
                         City = entity.City,
                         State = entity.State,
                         Capacity = entity.Capacity,
-                        NumberOfSeats = entity.NumberOfSeats,
+                        NumberOfSeats = entity.NumberOfSeats
                     };
             }
         }

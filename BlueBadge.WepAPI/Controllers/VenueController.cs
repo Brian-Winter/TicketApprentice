@@ -31,13 +31,20 @@ namespace BlueBadge.WepAPI.Controllers
 
             if (!venueService.CreateVenue(venue))
                 return InternalServerError();
-            
-            
 
+            if (venue.Capacity < venue.NumberOfSeats)
+            {
+                return BadRequest("Cap is too low");
+            }
+            else
+            {
             return Ok();
-        }
 
-        public IHttpActionResult Get(int id)
+            }
+
+        }
+        
+        public IHttpActionResult GetbyId(int id)
         {
             VenueService venueService = CreateVenueService();
             var venue = venueService.GetVenueById(id);
@@ -67,7 +74,7 @@ namespace BlueBadge.WepAPI.Controllers
             return Ok();
         }
 
-        [Route("api/Venue/{state}")]
+        [Route("api/Venue/state/{state}")]
         public IHttpActionResult Get(string state)
         {
             VenueService venueService = CreateVenueService();
