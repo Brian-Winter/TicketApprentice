@@ -45,6 +45,9 @@ namespace BlueBadge.Services
                                 new EventListItem
                                 {
                                     EventId = e.EventId,
+                                    VenueId = e.VenueId,
+                                    AvailableTickets = e.AvailableTickets,
+                                    MaxTickets = e.MaxTickets,
                                     Date = e.Date,
                                     EventName = e.EventName
                                 }
@@ -66,6 +69,9 @@ namespace BlueBadge.Services
                                 new EventListItem
                                 {
                                     EventId = e.EventId,
+                                    VenueId = e.VenueId,
+                                    AvailableTickets = e.AvailableTickets,
+                                    MaxTickets = e.MaxTickets,
                                     Date = e.Date,
                                     EventName = e.EventName
                                 }
@@ -86,6 +92,7 @@ namespace BlueBadge.Services
                     new EventDetail
                     {
                         EventId = entity.EventId,
+                        VenueId = entity.VenueId,
                         Date = entity.Date,
                         EventName = entity.EventName,
                         MaxTickets = entity.MaxTickets,
@@ -108,6 +115,9 @@ namespace BlueBadge.Services
                                 new EventListItem
                                 {
                                     EventId = e.EventId,
+                                    VenueId = e.VenueId,
+                                    AvailableTickets = e.AvailableTickets,
+                                    MaxTickets = e.MaxTickets,
                                     Date = e.Date,
                                     EventName = e.EventName
                                 }
@@ -129,6 +139,9 @@ namespace BlueBadge.Services
                                 new EventListItem
                                 {
                                     EventId = e.EventId,
+                                    VenueId = e.VenueId,
+                                    AvailableTickets = e.AvailableTickets,
+                                    MaxTickets = e.MaxTickets,
                                     Date = e.Date,
                                     EventName = e.EventName
                                 }

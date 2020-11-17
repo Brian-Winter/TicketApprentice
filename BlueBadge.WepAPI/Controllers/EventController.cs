@@ -69,7 +69,7 @@ namespace BlueBadge.WepAPI.Controllers
                     return Ok(ev);
 
                 default:
-                    return BadRequest("The request is invalid, please specify your search parameters. (Try \"event\" or \"venue\")");
+                    return BadRequest("The request is invalid, please specify your search parameters. (Try \"e\" or \"v\" for {type})");
             }
         }
 
