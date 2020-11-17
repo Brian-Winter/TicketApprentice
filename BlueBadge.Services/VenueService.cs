@@ -54,9 +54,13 @@ namespace BlueBadge.Services
                             e =>
                                 new VenueListItem
                                 {
+                                    VenueId = e.VenueId,
                                     VenueName = e.VenueName,
+                                    State = e.State,
+                                    StreetAddress = e.StreetAddress,
                                     City = e.City,
-                                    State = e.State
+                                    Capacity = e.Capacity,
+                                    NumberOfSeats = e.NumberOfSeats
                                 }
                         );
 
@@ -126,17 +130,14 @@ namespace BlueBadge.Services
             }
         }
 
-        //See Venues by State (add a Route /States)
+        //See Venues by State(add a Route /States)
 
 
         public IEnumerable<VenueListItem> GetVenueByState(string state)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var query =
-                    ctx
-                        .Venue
-                        .Where(e => e.State == state)
+                var query = ctx.Venue.Where(e => e.State == state)
                         .Select(
                             e =>
                                 new VenueListItem
