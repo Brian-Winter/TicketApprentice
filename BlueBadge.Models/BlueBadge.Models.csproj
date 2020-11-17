@@ -77,7 +77,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BlueBadge.Data\BlueBadge.Data.csproj">
-      <Project>{18647704-03AC-4C0F-882B-2B1C22569964}</Project>
+      <Project>{18647704-03ac-4c0f-882b-2b1c22569964}</Project>
       <Name>BlueBadge.Data</Name>
     </ProjectReference>
   </ItemGroup>
